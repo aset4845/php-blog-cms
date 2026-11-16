@@ -1,0 +1,55 @@
+<style>
+.header-btn {
+    display:inline-block;
+    margin-right:10px;
+    padding:5px 10px;
+    background:#fff;
+    color:#6c63ff;
+    border-radius:5px;
+    text-decoration:none;
+    transition: background 0.3s;
+}
+.header-btn:hover {
+    background: #6c63ff;
+    color: #fff;
+}
+</style>
+
+<section>
+    <h2>Комментарии</h2>
+
+    <form method="POST">
+        <p>
+            <label>Имя:<br>
+                <input type="text" name="author" value="Гость">
+            </label>
+        </p>
+        <p>
+            <label>Комментарий:<br>
+                <textarea name="content" rows="5" required></textarea>
+            </label>
+        </p>
+        <p><button type="submit">Отправить</button></p>
+    </form>
+
+    <?php if ($comments): ?>
+        <ul>
+            <?php foreach ($comments as $c): ?>
+                <li><strong><?= htmlspecialchars($c['author']) ?>:</strong> <?= nl2br(htmlspecialchars($c['content'])) ?> <em>(<?= $c['created_at'] ?>)</em></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>Комментариев пока нет.</p>
+    <?php endif; ?>
+</section>
+
+<header>
+    <nav>
+        <?php foreach ($headerButtons as $btn): ?>
+            <a href="<?= htmlspecialchars($btn['url']) ?>"><?= htmlspecialchars($btn['title']) ?></a>
+        <?php endforeach; ?>
+    </nav>
+</header>
+
+
+<link rel="stylesheet" href="<?= $config['base_url'] ?>public/style.css">

@@ -1,0 +1,10 @@
+# Загруженные пользователями медиафайлы
+uploads/images/*
+uploads/videos/*
+public/uploads/images/*
+public/uploads/videos/*
+!**/.gitkeep
+
+# IDE
+.idea/
+.vscode/

@@ -1,0 +1,5 @@
+# Перенаправлять в public, если нужно
+RewriteEngine On
+RewriteRule ^$ public/ [L]
+RewriteRule ^admin/?(.*)$ admin/$1 [L]
+RewriteRule ^(.*)$ public/$1 [L]
